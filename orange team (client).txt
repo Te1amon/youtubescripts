@@ -1,0 +1,42 @@
+players = game:GetService("Players")
+player  = players.LocalPlayer
+gui     = player.PlayerGui
+storage = game:GetService("ReplicatedStorage")
+tems = game:GetService("Teams")
+button = gui.GUI.TeamSelection.Buttons["Or"]:Clone()
+button.Name = "uwuuwu"
+button.Visible  = true
+button.Parent = gui.GUI.TeamSelection.Buttons
+button.MouseButton1Click:connect(function()
+    numbar = math.random(1, 2)
+    if numbar == 1 then
+    tem = "TBC"
+    else
+    tem = "TRC"
+    end
+ storage.Events.JoinTeam:FireServer(tem)
+    gui.GUI.TeamSelection.Visible = false
+    gui.GUI.BottomFrame.Visible = false
+    wait(_G.PurpleWaitTime)
+ player.TeamColor = tems.TOC.TeamColor
+ player.Status.Team.Value = "TOC"
+wait()
+ storage.Events.LoadCharacter:FireServer()
+    if player.Character:FindFirstChild("Cap") then
+        player.Character.Cap.Handle.BrickColor = BrickColor.new("Bright orange")
+        else
+    -- e
+    end
+    
+     if player.Character:FindFirstChild("Body Colors") then
+         pogcamp = player.Character:FindFirstChild("Body Colors")
+         pogcamp.LeftArmColor = BrickColor.new("Bright orange")
+         pogcamp.RightArmColor = BrickColor.new("Bright orange")
+         pogcamp.TorsoColor = BrickColor.new("Bright orange")
+         pogcamp.LeftLegColor = BrickColor.new("Bright orange")
+         pogcamp.RightLegColor = BrickColor.new("Bright orange")
+         else
+             
+     end
+     --storage.Remotes.LoadCharacter:FireServer()
+end)
